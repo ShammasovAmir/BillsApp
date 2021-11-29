@@ -1,0 +1,329 @@
+#BillsApp {
+  background: rgb(63, 255, 173);
+  background: linear-gradient(90deg, #e84393 0%, #ff8265 100%);
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: white;
+    }
+  }
+
+  #AllBills {
+    position: relative;
+    z-index: 3;
+    height: calc(100vh - 69px);
+    overflow: scroll;
+
+    .container {
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    .total-bills {
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 20px 0;
+
+      .text {
+        font-size: 1.3rem;
+      }
+
+      .number {
+        font-size: 0.9rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 300;
+      }
+    }
+
+    .bills-list {
+      background: white;
+      border-radius: 10px;
+      -webkit-box-shadow: 0px 10px 31px -10px rgba(173, 170, 173, 1);
+      -moz-box-shadow: 0px 10px 31px -10px rgba(173, 170, 173, 1);
+      box-shadow: 0px 10px 31px -10px rgba(173, 170, 173, 1);
+      overflow: hidden;
+
+      .bill {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #e8e8e8;
+        padding: 20px;
+        position: relative;
+        height: 82px;
+        overflow: hidden;
+        background: #fff;
+
+        &.active {
+          background: #7ab650;
+        }
+
+        &:hover {
+          .buttons {
+            transform: translate3d(0, 0, 0);
+          }
+        }
+
+        &:last-child {
+          border: none;
+        }
+
+        .company {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .logo {
+            img {
+              border-radius: 50%;
+              height: 40px;
+              width: 40px;
+            }
+          }
+
+          .title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-left: 20px;
+            color: rgb(63, 60, 60);
+            text-transform: uppercase;
+          }
+        }
+
+        .price {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: rgb(121, 116, 116);
+        }
+
+        .buttons {
+          display: flex;
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          width: 100px;
+          color: white;
+          transform: translate3d(100%, 0, 0);
+          transition: transform 0.4s ease-in-out;
+          cursor: pointer;
+
+          .paid {
+            background: #7ab650;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+          }
+          .delete {
+            background: #9b0054;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  .content-background {
+    background: #e8e8e8;
+    height: 77vh;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+  }
+
+  #FloatingMenu {
+    background: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    -webkit-box-shadow: 0px -10px 31px -10px rgba(173, 170, 173, 1);
+    -moz-box-shadow: 0px -10px 31px -10px rgba(173, 170, 173, 1);
+    box-shadow: 0px -10px 31px -10px rgba(173, 170, 173, 1);
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: rgb(201, 201, 201);
+      transition: all 0.4s ease-in-out;
+    }
+    .text {
+      font-size: 0.8rem;
+      color: rgb(201, 201, 201);
+      transition: all 0.4s ease-in-out;
+    }
+    .link {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.4s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        background: linear-gradient(90deg, #e84393 0%, #ff8265 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+
+        .fas:before {
+          background: linear-gradient(90deg, #e84393 0%, #ff8265 100%);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        &:last-child {
+          .fas:before {
+            background: white;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+        }
+      }
+
+      &:last-child {
+        .fas:before {
+          background: white;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+    }
+
+    .add-button {
+      background: linear-gradient(90deg, #e84393 0%, #ff8265 100%);
+      height: 55px;
+      width: 55px;
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .icon {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  #AddBill {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    background: linear-gradient(90deg, #e84393 0%, #ff8265 100%);
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    transition: transform 0.4s ease-in-out;
+    transform: translate3d(100%, 0, 0);
+
+    &.active {
+      transform: translate3d(0, 0, 0);
+    }
+
+    .container {
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: white;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .form-group {
+      margin: 0 0 1.5rem;
+    }
+
+    label {
+      display: block;
+      color: white;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    input {
+      display: block;
+      background: transparent;
+      border: 1px solid white;
+      font-size: 1.1rem;
+      padding: 7px;
+      color: white;
+      width: 100%;
+      transition: 0.4s;
+
+      &:focus {
+        outline-width: 0;
+      }
+    }
+
+    input[type='file'] {
+      border: none;
+    }
+
+    button {
+      background: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #app {
+    background: black;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #BillsApp {
+    width: 324px;
+    height: 700px;
+    border-radius: 15px;
+
+    #AllBills {
+      overflow-x: hidden;
+    }
+
+    .content-background {
+      height: 500px;
+    }
+  }
+}
