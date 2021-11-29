@@ -24,11 +24,9 @@ export default class App extends Component {
       $push: [bill],
     })
 
-    this.setState({ allBills: newBills, addBillOpen: false }, () => {
+    this.setState({ allBills: newBills, addBillOpen: false }, () =>
       localStorage.setItem('allBills', JSON.stringify(this.state.allBills))
-      console.log(this.state)
-      console.table(localStorage.getItem('allBills'))
-    })
+    )
   }
 
   changeBillStatus = (billIndex) => {

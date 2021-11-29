@@ -25,11 +25,6 @@ export default class AllBills extends Component {
         <li className={`bill ${bill.status === true ? 'active' : ''}`} key={i}>
           <div className="company">
             <div className="logo">
-              {/* {bill.img_src ? (
-                <img src={`${bill.img_src}`} alt="" />
-              ) : (
-                <img src="../src/img/receipt.png" alt="" />
-              )} */}
               <img
                 src={`${bill.img_src || './receipt.png'}`}
                 alt=""

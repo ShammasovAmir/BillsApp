@@ -21,7 +21,6 @@ export default class AddBill extends Component {
       const reader = new FileReader()
       reader.readAsDataURL(file)
       reader.onload = () => {
-        console.log(reader.result)
         value = reader.result
         this.setState({ [name]: value })
       }
@@ -39,7 +38,6 @@ export default class AddBill extends Component {
       img_src: '',
       price: '',
     })
-    console.log(this.state)
   }
 
   render() {
