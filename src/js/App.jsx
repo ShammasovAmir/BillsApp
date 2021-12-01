@@ -55,21 +55,19 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div id="BillsApp">
-          <Header />
-          <AllBills
-            allBills={this.state.allBills}
-            changeBillStatus={this.changeBillStatus}
-            deleteBill={this.deleteBill}
-          />
-          <AddBill
-            addBillOpen={this.state.addBillOpen}
-            saveBill={this.saveBill}
-          />
-          <div className="content-background"></div>
-          <FloatingMenu clickedAddBillBtn={this.clickedAddBillBtn} />
-        </div>
+      <div id="BillsApp">
+        <Header />
+        <AllBills
+          allBills={this.state.allBills}
+          changeBillStatus={this.changeBillStatus}
+          deleteBill={this.deleteBill}
+        />
+        <AddBill
+          addBillOpen={this.state.addBillOpen}
+          saveBill={this.saveBill}
+        />
+        <div className="content-background"></div>
+        <FloatingMenu clickedAddBillBtn={this.clickedAddBillBtn} />
       </div>
     )
   }

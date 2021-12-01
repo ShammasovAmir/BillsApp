@@ -22,7 +22,7 @@
   #AllBills {
     position: relative;
     z-index: 3;
-    height: calc(100vh - 69px);
+    height: calc(100vh - 4.3125rem);
     overflow: scroll;
 
     .container {
@@ -36,7 +36,7 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      padding: 20px 0;
+      padding: 1.25rem 0;
 
       .text {
         font-size: 1.3rem;
@@ -58,14 +58,16 @@
       -moz-box-shadow: 0px 10px 31px -10px rgba(173, 170, 173, 1);
       box-shadow: 0px 10px 31px -10px rgba(173, 170, 173, 1);
       overflow: hidden;
+      display: grid;
+      grid-template-columns: 1;
 
       .bill {
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #e8e8e8;
-        padding: 20px;
+        padding: 1.25rem;
         position: relative;
-        height: 82px;
+        height: 5.125rem;
         overflow: hidden;
         background: #fff;
 
@@ -91,15 +93,15 @@
           .logo {
             img {
               border-radius: 50%;
-              height: 40px;
-              width: 40px;
+              height: 2.5rem;
+              width: 2.5rem;
             }
           }
 
           .title {
             font-size: 1.1rem;
             font-weight: 500;
-            margin-left: 20px;
+            margin-left: 1.25rem;
             color: rgb(63, 60, 60);
             text-transform: uppercase;
           }
@@ -118,9 +120,9 @@
           top: 0;
           right: 0;
           height: 100%;
-          width: 100px;
+          width: 6.25rem;
           color: white;
-          transform: translate3d(100%, 0, 0);
+          transform: translate3d(101%, 0, 0);
           transition: transform 0.4s ease-in-out;
           cursor: pointer;
 
@@ -154,9 +156,7 @@
 
   #FloatingMenu {
     background: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
+    padding: 1.25rem 0;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -164,6 +164,16 @@
     -webkit-box-shadow: 0px -10px 31px -10px rgba(173, 170, 173, 1);
     -moz-box-shadow: 0px -10px 31px -10px rgba(173, 170, 173, 1);
     box-shadow: 0px -10px 31px -10px rgba(173, 170, 173, 1);
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+
+      &:after {
+        content: '';
+        display: none !important;
+      }
+    }
 
     .icon {
       font-size: 2rem;
@@ -183,6 +193,7 @@
       align-items: center;
       transition: all 0.4s ease-in-out;
       cursor: pointer;
+      padding: 0 20px;
 
       &:hover {
         background: linear-gradient(90deg, #e84393 0%, #ff8265 100%);
@@ -269,7 +280,7 @@
       display: block;
       color: white;
       font-size: 0.8rem;
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
       font-weight: 700;
     }
 
@@ -299,31 +310,81 @@
       width: 100%;
       text-transform: uppercase;
       font-size: 0.8rem;
+      cursor: pointer;
     }
   }
 }
 
-@media only screen and (min-width: 600px) {
-  #app {
-    background: black;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@media #{$breakpoint-small} {
+  #BillsApp {
+    #AddBill {
+      input {
+        padding: 0.75rem;
+      }
+
+      button {
+        padding: 15px;
+      }
+    }
+  }
+}
+
+@media #{$breakpoint-medium} {
+  html,
+  body {
+    font-size: 20px;
+  }
+}
+
+@media #{$breakpoint-large} {
+  #BillsApp {
+    #AllBills {
+      .bills-list {
+        background: transparent;
+        grid-template-columns: (1fr 1fr);
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        border-radius: 0;
+
+        .bill {
+          margin-right: 20px;
+          margin-left: 0;
+          -webkit-box-shadow: 0px 10px 31px -10px rgba(173, 170, 173, 1);
+          -moz-box-shadow: 0px 10px 31px -10px rgba(173, 170, 173, 1);
+          box-shadow: 0px 10px 31px -10px rgba(173, 170, 173, 1);
+          border-radius: 10px;
+        }
+
+        .bill:nth-child(2) {
+          margin-right: 0;
+          margin-left: 20px;
+        }
+      }
+    }
+
+    #FloatingMenu {
+      .add-button {
+        width: 68.75px;
+        height: 68.75px;
+      }
+    }
+  }
+}
+
+@media #{$breakpoint-xl} {
+  html,
+  body {
+    font-size: 25px;
   }
 
   #BillsApp {
-    width: 324px;
-    height: 700px;
-    border-radius: 15px;
-
-    #AllBills {
-      overflow-x: hidden;
+    header {
+      padding: 30px;
     }
 
     .content-background {
-      height: 500px;
+      height: 70vh;
     }
   }
 }
